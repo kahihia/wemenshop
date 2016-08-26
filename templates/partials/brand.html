@@ -1,0 +1,36 @@
+{% load staticfiles %}
+
+
+{% block navigation %}
+
+<nav class="navbar navbar-default">
+  	<div class="container center-container">
+  		<!-- On the top display the logo -->
+  		<div id="logo-fullscreen">
+  			<img id="logo-main" class="img-responsive center-block" src="{% static "oscar/images/logos/wemen_logo.png" %}" alt="Wemen">
+  		</div>
+
+  		<!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	    </div>
+  	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+    	<div class="collapse navbar-collapse" id="main-nav">
+		    <ul class="nav nav-pills nav-justified">
+			  	<li><a href="#">Home</a></li>
+			  	<li><a href="/shop">Shop</a></li>
+			  	<li><a href="#">About</a></li>
+			  	<li><a href="#">Contact</a></li>
+			</ul>
+		</div><!-- End collapse -->
+  	</div><!-- End Container -->
+</nav>
+
+{% endblock %}
+

@@ -1,0 +1,61 @@
+{% load staticfiles i18n %}
+
+<footer class="footer-distributed">
+    {% block footer %}
+		<div class="footer-left">
+			<h3><img id="logo-main" src="{% static "oscar/images/logos/wemen_logo.png" %}" alt="Wemen"></h3>
+
+			<p class="footer-links">
+				<a href="#">Home</a>
+				·
+				<a href="#">Shop</a>
+				·
+				<a href="#">About</a>
+				·
+				<a href="#">Contact</a>
+			</p>
+
+			<p class="footer-company-name">WEMEN &copy; 2016</p>
+
+		</div>
+
+		<div class="footer-center">
+			<div>
+				<i class="fa fa-map-marker"></i>
+				<p><span>The internet</span> Gothenburg, Sweden</p>
+			</div>
+
+			<div>
+				<i class="fa fa-phone"></i>
+				<p>+46 31 68 28 22</p>
+			</div>
+
+			<div>
+				<i class="fa fa-envelope"></i>
+				<p><a href="mailto:support@wemen.com">support@wemen.com</a></p>
+			</div>
+			
+
+		</div>
+
+		<div class="footer-right">
+			
+			<p class="footer-company-about">
+				<span>{% blocktrans %}Payment information{% endblocktrans %}</span>
+			</p>
+
+			<div class="footer-icons">
+
+				<img src="https://cdn.klarna.com/1.0/shared/image/generic/badge/fi_fi/checkout/long-white.png?width=440" />
+
+			</div>
+		</div>
+
+		<!-- Klarna JavaScript for displaying icons -->
+		    <script async src="https://cdn.klarna.com/1.0/code/client/all.js"></script>
+    {% endblock %}
+</footer>
+
+{% block scripts %}
+			<link rel="stylesheet" href="{% static 'wemen/css/footer.css' %}" />
+{% endblock %}
