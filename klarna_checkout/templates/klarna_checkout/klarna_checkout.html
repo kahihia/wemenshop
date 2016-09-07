@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% load promotion_tags %}
+{% load category_tags %}
+
+{% block title %}
+	Checkout | {{ block.super }} 
+{% endblock %}
+
+{% block layout %}
+
+    <header class="header container-fluid">
+        <div class="page_inner">
+            <div class="row">
+                {% include "partials/brand.html" %}
+            </div><!-- /row -->
+        </div>
+        {% block checkout_nav %}{% endblock %}
+    </header><!-- /header -->
+
+    <div class="container-fluid page">
+       <div class="page_inner">
+       		{% include 'basket/partials/basket_checkout.html' %}
+            <div class="sub-header">
+                <h1>{% block checkout_title %}Klarna checkout{% endblock %}</h1>
+            </div>
+
+            {% block content %}{% endblock %}
+
+            <div id="promotions">
+                {% for promotion in promotions_page %}
+                    {% render_promotion promotion %}
+                {% endfor %}
+            </div>
+        </div><!-- /page_inner -->
+    </div>
+    {% include "partials/footer_checkout.html" %}
+{% endblock %}

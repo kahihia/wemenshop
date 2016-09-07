@@ -16,52 +16,42 @@
     <link rel="stylesheet" href="{% static "oscar/js/bootstrap-datetimepicker/bootstrap-datetimepicker.css" %}" />
     <link rel="stylesheet" type="text/css" href="{% static "oscar/css/datetimepicker.css" %}" />
     <link rel="stylesheet" href="{% static 'oscar/css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'oscar/css/positionings.css' %}" />
 {% endblock %}
 
 {% block layout %}
 
-    {# Site logo/title, mini-basket, browse dropdown and searchbox #}
+    {# Site logo/title, and navigation#}
     <header class="header container-fluid">
         <div class="page_inner">
             <div class="row">
                 {% include "partials/brand.html" %}
             </div>
         </div>
-        {% block navigation %}
-            {% include "partials/nav_primary.html" %}
-        {% endblock %}
     </header>
 
     {# Main content of page - other layout templates may override this block #}
+
+    
     {% block content_wrapper %}
         <div class="container-fluid page">
+            <div id="cart_div">
+                {% include 'basket/partials/basket_quick.html' %}
+            </div>
             <div class="page_inner">
-                {% block breadcrumbs %}{% endblock %}
-                {% block header %}
-                    <div class="page-header action">
-                        <h1>{% block headertext %}{% endblock %}</h1>
-                    </div>
-                {% endblock %}
-                {% include "partials/alert_messages.html" %}
-                {% block subnavigation %}{% endblock %}
                 <div class="content">
-                    {% block subheader %}{% endblock subheader %}
-
-                    {# Render promotions #}
-                    <div id="promotions">
-                        {% for promotion in promotions_page %}
-                            {% render_promotion promotion %}
-                        {% endfor %}
-                    </div>
-
                     {# Div exists for AJAX updates to entire content section #}
-                    <div id="content_inner">{% block content %}{% endblock %}</div>
+                    <div id="content_inner">
+                    {% block content %}
+                    {% endblock %}
+                    </div>
                 </div>
             </div>
         </div>
     {% endblock %}
-
+    
     {% include "partials/footer.html" %}
+
 {% endblock %}
 
 {% block cdn_scripts %}
@@ -82,6 +72,7 @@
 
     <script src="{% static "oscar/js/bootstrap-datetimepicker/bootstrap-datetimepicker.js" %}" type="text/javascript" charset="utf-8"></script>
     <script src="{% static "oscar/js/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.all.js" %}" type="text/javascript" charset="utf-8"></script>
+
 
 {% endblock %}
 

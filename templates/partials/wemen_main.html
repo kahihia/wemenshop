@@ -1,0 +1,22 @@
+{% load staticfiles i18n %}
+{% load promotion_tags %}
+	<div class="container-fluid page">
+            <div class="page_inner">
+
+                <div class="content">
+                  
+
+                    
+
+                    {# Render promotions #}
+                    <div id="promotions">
+                        {% for promotion in promotions_page %}
+                            {% render_promotion promotion %}
+                        {% endfor %}
+                    </div>
+
+                    {# Div exists for AJAX updates to entire content section #}
+                    <div id="content_inner">{% block content %}{% endblock %}</div>
+                </div>
+            </div>
+        </div>

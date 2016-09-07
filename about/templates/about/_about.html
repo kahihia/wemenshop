@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% load staticfiles i18n %}
+
+{% block content %}
+	
+<div class="col-md-6">
+    <img src="{% static "oscar/images/logos/wemen_logo.png" %}" class="img-responsive" />
+
+    <div class="panel panel-default" style="margin-top:50px;" >
+	  <div class="panel-heading">
+	    <h3 class="panel-title">About WeMEN</h3>
+	  </div>
+	  <div class="panel-body">
+	    <p>We deliver high class underwear. Kom på något bra att skriva här grabbar.</p>
+	  </div>
+	</div>
+</div>
+
+<div class="col-md-6">
+    <img src="{% static "oscar/images/models/man_model.jpg" %}" class="img-responsive" />
+</div>
+
+{% endblock %}

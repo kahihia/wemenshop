@@ -3,7 +3,7 @@
 <footer class="footer-distributed">
     {% block footer %}
 		<div class="footer-left">
-			<h3><img id="logo-main" src="{% static "oscar/images/logos/wemen_logo.png" %}" alt="Wemen"></h3>
+			<h3><img id="logo-main" class="img-responsive center-block" src="{% static "oscar/images/logos/wemen_logo.png" %}" alt="Wemen"></h3>
 
 			<p class="footer-links">
 				<a href="#">Home</a>
@@ -46,7 +46,7 @@
 
 			<div class="footer-icons">
 
-				<img src="https://cdn.klarna.com/1.0/shared/image/generic/badge/fi_fi/checkout/long-white.png?width=440" />
+				<img class="img-responsive center-block" src="https://cdn.klarna.com/1.0/shared/image/generic/badge/fi_fi/checkout/long-white.png?width=440" />
 
 			</div>
 		</div>
@@ -55,7 +55,3 @@
 		    <script async src="https://cdn.klarna.com/1.0/code/client/all.js"></script>
     {% endblock %}
 </footer>
-
-{% block scripts %}
-			<link rel="stylesheet" href="{% static 'wemen/css/footer.css' %}" />
-{% endblock %}

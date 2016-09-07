@@ -1,5 +1,6 @@
-{% extends "layout_2_col.html" %}
+{% extends "layout.html" %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block navigation %}
     {% include "partials/nav_primary.html" with expand_dropdown=1 %}
@@ -11,4 +12,12 @@
 {% endblock %}
 
 {% block content %}
+
+	<div class="col-md-6">
+        <img src="{% static "oscar/images/models/street_graffiti.jpg" %}" class="img-responsive" />
+    </div>
+    <div class="col-md-6">
+        <img src="{% static "oscar/images/models/man_model.jpg" %}" class="img-responsive" />
+    </div>
+
 {% endblock content %}

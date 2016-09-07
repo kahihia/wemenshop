@@ -19,9 +19,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$6d2z9a%9jnimhh3l6)k^gfrf3r_vijj5$hm8@337n$yfve3)#'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -41,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     'widget_tweaks',
-] + get_core_apps()
+    'about',
+    'klarna_checkout',
+    #'compressor',
+] + get_core_apps(['apps.catalogue', 'checkout'])
 
 SITE_ID = 1
 
@@ -163,6 +163,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ['/home/jacob/GitRepos/wemenshop/static']
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media/'
+OSCAR_IMAGE_FOLDER = 'images/products/%Y/%m/'
 
 # For searching products
 HAYSTACK_CONNECTIONS = {
@@ -195,5 +198,14 @@ OSCAR_ORDER_STATUS_PIPELINE = {
 # OSCAR SETTINGS
 OSCAR_SHOP_NAME = "WEMEN"
 OSCAR_DEFAULT_CURRENCY = "SEK"
-USE_LESS = True
-COMPRESS_ENABLED = False
+
+
+# Thumbnail settings
+THUMBNAIL_COLORSPACE = None
+THUMBNAIL_PRESERVE_FORMAT = True 
+
+# Allow guest checkouts
+OSCAR_ALLOW_ANON_CHECKOUT = True
+
+# Import secret settings like email and secret key etc
+import settings_secret

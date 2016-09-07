@@ -4,7 +4,12 @@
 {% load thumbnail %}
 {% load i18n %}
 {% load staticfiles %}
-
+<button type="button" class="btn btn-default btn-lg"  id="cart-show-hide-button" >
+    <span class="glyphicon glyphicon-chevron-down" id="basket-arrow-down" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-chevron-up" id="basket-arrow-up" aria-hidden="true"></span>
+</button>
+<img src="{% static 'oscar/img/ui/shopping-basket-icon.png' %}" class="basket-icon pull-right" />
+<div id="cart_content">
 <ul class="basket-mini-item list-unstyled">
     {% if request.basket.num_lines %}
         {% for line in request.basket.all_lines %}
@@ -36,9 +41,10 @@
                 {% endif %}
             </p>
             <a href="{% url 'basket:summary' %}" class="btn btn-info btn-sm">{% trans "View basket" %}</a>
-            <a href="{% url 'checkout:index' %}" class="btn btn-primary btn-sm pull-right"><i class="icon-shopping-cart"></i> {% trans "Checkout" %}</a>
+            <a href="/klarna_checkout/" class="btn btn-primary btn-sm pull-right"><i class="icon-shopping-cart"></i> {% trans "Checkout" %}</a>
         </li>
     {% else %}
         <li><p>{% trans "Your basket is empty." %}</p></li>
     {% endif %}
 </ul>
+</div>
